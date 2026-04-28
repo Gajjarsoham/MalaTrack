@@ -1,31 +1,7 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.venv/
-venv/
-
-# Node
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-
-# Environment
+__pycache__/
 .env
-.env.local
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Build
-frontend/build/
+venv/
+build/
 dist/
+*.log
