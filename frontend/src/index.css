@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --saffron: #ff7d10;
+  --maroon: #8b0000;
+  --gold: #ffa000;
+  --cream: #fdf8f0;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background-color: #fdf8f0;
+  color: #2d1a0e;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #fdf8f0; }
+::-webkit-scrollbar-thumb { background: #ff7d10; border-radius: 3px; }
+
+.page-bg {
+  background: radial-gradient(ellipse at 10% 20%, rgba(255,125,16,0.08) 0%, transparent 60%),
+              radial-gradient(ellipse at 90% 80%, rgba(139,0,0,0.06) 0%, transparent 60%),
+              #fdf8f0;
+  min-height: 100vh;
+}
+
+.card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(253,248,240,0.98));
+  border: 1px solid rgba(255,125,16,0.15);
+  border-radius: 16px;
+  box-shadow: 0 2px 20px rgba(139,0,0,0.07), 0 0 0 1px rgba(255,125,16,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139,0,0,0.12), 0 0 0 1px rgba(255,125,16,0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff7d10, #c74308);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(255,125,16,0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255,125,16,0.4);
+}
+
+.btn-secondary {
+  background: rgba(255,125,16,0.1);
+  color: #c74308;
+  border: 1px solid rgba(255,125,16,0.3);
+  border-radius: 10px;
+  padding: 10px 24px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255,125,16,0.2);
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid rgba(255,125,16,0.25);
+  border-radius: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  background: rgba(255,255,255,0.8);
+  color: #2d1a0e;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.input-field:focus {
+  border-color: #ff7d10;
+  box-shadow: 0 0 0 3px rgba(255,125,16,0.12);
+}
+
+.badge-paid {
+  background: rgba(34,197,94,0.15);
+  color: #16a34a;
+  border: 1px solid rgba(34,197,94,0.3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.badge-pending {
+  background: rgba(239,68,68,0.12);
+  color: #dc2626;
+  border: 1px solid rgba(239,68,68,0.3);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 500;
+  color: rgba(45,26,14,0.7);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sidebar-link:hover {
+  background: rgba(255,125,16,0.1);
+  color: #c74308;
+}
+
+.sidebar-link.active {
+  background: linear-gradient(135deg, rgba(255,125,16,0.2), rgba(199,67,8,0.15));
+  color: #c74308;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px rgba(255,125,16,0.25);
+}
+
+.table-header {
+  background: linear-gradient(135deg, #ff7d10, #c74308);
+  color: white;
+}
+
+.table-row:hover {
+  background: rgba(255,125,16,0.04);
+}
+
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255,125,16,0.08);
+}
+
+.om-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ff7d10' fill-opacity='0.04'%3E%3Cpath d='M20 20c0-5.5-4.5-10-10-10s-10 4.5-10 10 4.5 10 10 10 10-4.5 10-10zm10 0c0-5.5-4.5-10-10-10v20c5.5 0 10-4.5 10-10z'/%3E%3C/g%3E%3C/svg%3E");
+}

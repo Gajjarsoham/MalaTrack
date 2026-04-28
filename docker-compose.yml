@@ -1,0 +1,48 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mala_root_pass
+      MYSQL_DATABASE: mala_business
+      MYSQL_USER: mala_user
+      MYSQL_PASSWORD: mala_db_pass
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./backend/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+    ports:
+      - "3306:3306"
+
+  backend:
+    build: ./backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: mala_user
+      DB_PASSWORD: mala_db_pass
+      DB_NAME: mala_business
+      ADMIN_USERNAME: admin
+      ADMIN_PASSWORD: admin123
+      SECRET_KEY: change-this-secret-key-in-production
+    depends_on:
+      - mysql
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        REACT_APP_API_URL: http://localhost:8000
+    restart: always
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
